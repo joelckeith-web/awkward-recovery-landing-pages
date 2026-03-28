@@ -361,16 +361,20 @@ export default function SubstanceAbuseTreatmentLP() {
                 <p className="text-white/40 text-xs uppercase tracking-widest mb-3">
                   In-Network With
                 </p>
-                <div className="flex flex-wrap items-center gap-6">
+                <div className="flex flex-wrap items-center gap-3">
                   {insuranceLogos.map((logo) => (
-                    <Image
+                    <div
                       key={logo.name}
-                      src={logo.src}
-                      alt={logo.name}
-                      width={120}
-                      height={50}
-                      className="h-8 w-auto object-contain brightness-0 invert opacity-60"
-                    />
+                      className="bg-white rounded-full px-3 py-1.5"
+                    >
+                      <Image
+                        src={logo.src}
+                        alt={logo.name}
+                        width={100}
+                        height={30}
+                        className="h-5 w-auto object-contain"
+                      />
+                    </div>
                   ))}
                 </div>
               </div>
