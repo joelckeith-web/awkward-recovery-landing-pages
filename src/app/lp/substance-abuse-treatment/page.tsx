@@ -457,18 +457,21 @@ export default function SubstanceAbuseTreatmentLP() {
             {benefits.map((benefit) => (
               <div
                 key={benefit.title}
-                className="bg-white border border-gray-100 rounded-brand-xl p-7 hover:shadow-lg
-                           hover:border-brand-purple-light/30 transition-all duration-200"
+                className="rounded-brand-xl p-[2px] bg-gradient-to-br from-brand-purple-light via-brand-purple to-brand-purple-dark
+                           shadow-md hover:shadow-[0_10px_40px_rgba(187,52,203,0.2)]
+                           hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-brand-lg bg-brand-purple/10 flex items-center justify-center mb-5">
-                  <benefit.icon className="w-6 h-6 text-brand-purple" />
+                <div className="bg-white rounded-[calc(1.5rem-2px)] p-7 h-full">
+                  <div className="w-12 h-12 rounded-brand-lg bg-brand-purple/10 flex items-center justify-center mb-5">
+                    <benefit.icon className="w-6 h-6 text-brand-purple" />
+                  </div>
+                  <h3 className="font-heading font-bold text-lg text-brand-black mb-2">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {benefit.description}
+                  </p>
                 </div>
-                <h3 className="font-heading font-bold text-lg text-brand-black mb-2">
-                  {benefit.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {benefit.description}
-                </p>
               </div>
             ))}
           </div>
