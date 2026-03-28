@@ -93,7 +93,7 @@ const trustStats = [
     label: "Joint Commission Accredited",
     value: "Gold Seal",
   },
-  { icon: Star, label: "Google Reviews", value: "5-Star Rated" },
+  { icon: Star, label: "Google Reviews", value: "4.8 Stars" },
   { icon: BadgeCheck, label: "Insurance", value: "In-Network" },
   { icon: Clock, label: "Schedule", value: "Flexible IOP" },
 ];
@@ -204,19 +204,19 @@ const processSteps = [
 
 const reviews = [
   {
-    text: "I have referred clients and trust they are in good hands. The level of care and genuine concern for each person's recovery journey is something I rarely see.",
-    author: "Licensed Therapist",
-    role: "Clinical Referral Partner",
+    text: "This program has drastically improved my life. Our group is so close. The clinicians are knowledgeable and compassionate while challenging us. I cannot recommend this place enough!",
+    author: "Google Review",
+    role: "5-Star Review",
   },
   {
-    text: "I will always be thankful for Rachel and the entire Awkward Recovery team. They helped me find myself again when I thought substance abuse had taken everything.",
-    author: "Community Member",
-    role: "Program Graduate",
+    text: "Awkward Recovery was nothing less of a miracle. It showed up in my life when I was destitute. When I started working the program the staff embraced me and ensured I would be alright. I received education and saw the best version of myself. They showed me I am worthy. When I believed it, I changed.",
+    author: "Google Review",
+    role: "5-Star Review",
   },
   {
-    text: "Sometimes I want to relapse just so I can go again! The community, the approach, the people — it's unlike any other substance abuse program I've tried.",
-    author: "Community Member",
-    role: "Program Graduate",
+    text: "I was blessed to have found Awkward Recovery. I made the decision in rehab that I wasn't going back to my hometown. I called all kinds of places, turned down so much because I didn't have the money. So randomly I called and the next day I had a new home and a new IOP. I am happy to get to be called an Awkward alumni.",
+    author: "Google Review",
+    role: "5-Star Review",
   },
 ];
 
@@ -487,7 +487,7 @@ export default function SubstanceAbuseTreatmentLP() {
                 Recognize the Signs
               </p>
               <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-brand-black mb-4">
-                Do You or a Loved One Need Substance Abuse Treatment?
+                Do You or a Loved One Need Help?
               </h2>
               <p className="text-gray-600 mb-8">
                 Substance use disorders affect millions of Americans. If any of
@@ -560,7 +560,7 @@ export default function SubstanceAbuseTreatmentLP() {
               Our Programs
             </p>
             <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-brand-black mb-4">
-              Substance Abuse Treatment Programs in Austin
+              Our Recovery Programs
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               From intensive outpatient to ongoing support, we offer flexible
@@ -618,7 +618,7 @@ export default function SubstanceAbuseTreatmentLP() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <h2 className="font-heading font-extrabold text-3xl text-brand-black">
-              Understanding Substance Abuse Treatment in Austin, TX
+              Recovery Starts With the Right Program
             </h2>
             <p className="text-gray-600 leading-relaxed">
               Substance abuse affects every part of your life — your health,
@@ -688,7 +688,7 @@ export default function SubstanceAbuseTreatmentLP() {
                 How It Works
               </p>
               <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-white mb-6">
-                Getting Started With Substance Abuse Treatment Is Simple
+                Getting Started Is Simple
               </h2>
               <p className="text-white/60 text-lg leading-relaxed mb-8">
                 We&apos;ve made the process as straightforward as possible.
@@ -751,7 +751,7 @@ export default function SubstanceAbuseTreatmentLP() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-brand-purple font-semibold text-sm uppercase tracking-widest mb-3">
-              Real Stories
+              4.8 Stars on Google
             </p>
             <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-brand-black">
               What Our Community Says
@@ -873,7 +873,7 @@ export default function SubstanceAbuseTreatmentLP() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <p className="text-brand-purple font-semibold text-sm uppercase tracking-widest mb-3">
-              Substance Abuse Treatment Near You
+              Treatment Near You
             </p>
             <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-brand-black mb-4">
               Serving the Greater Austin Area
@@ -913,7 +913,7 @@ export default function SubstanceAbuseTreatmentLP() {
       <div className="bg-gray-50">
         <FAQAccordion
           faqs={faqs}
-          title="Substance Abuse Treatment FAQs"
+          title="Frequently Asked Questions"
         />
       </div>
 
