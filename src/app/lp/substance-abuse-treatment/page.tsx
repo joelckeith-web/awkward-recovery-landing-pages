@@ -156,28 +156,28 @@ const programs = [
     title: "Intensive Outpatient Program (IOP)",
     description:
       "Structured substance abuse treatment 3-4 days per week. Our flagship program combines group therapy, individual sessions, and skill-building in a supportive environment.",
-    highlight: true,
+    variant: "purple" as const,
   },
   {
     icon: CalendarCheck,
     title: "Outpatient Program (OP)",
     description:
       "Step-down care for those transitioning from IOP or seeking ongoing substance abuse support with fewer weekly sessions.",
-    highlight: false,
+    variant: "green" as const,
   },
   {
     icon: Brain,
     title: "Dual Diagnosis Treatment",
     description:
       "Integrated treatment for co-occurring substance use and mental health disorders including anxiety, depression, PTSD, and trauma.",
-    highlight: false,
+    variant: "green" as const,
   },
   {
     icon: Pill,
     title: "Substance-Specific Programs",
     description:
       "Specialized treatment tracks for alcohol, cocaine, methamphetamine, fentanyl, and other substance use disorders.",
-    highlight: false,
+    variant: "purple" as const,
   },
 ];
 
@@ -572,44 +572,63 @@ export default function SubstanceAbuseTreatmentLP() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {programs.map((program) => (
-              <div
-                key={program.title}
-                className={`rounded-brand-xl p-7 ${
-                  program.highlight
-                    ? "bg-gradient-to-br from-brand-purple to-brand-purple-dark text-white ring-2 ring-brand-purple"
-                    : "bg-white border border-gray-200 hover:border-brand-purple-light/40"
-                } hover:shadow-lg transition-all duration-200`}
-              >
+            {programs.map((program) => {
+              const isPurple = program.variant === "purple";
+              const isGreen = program.variant === "green";
+              return (
                 <div
-                  className={`w-12 h-12 rounded-brand-lg flex items-center justify-center mb-5 ${
-                    program.highlight
-                      ? "bg-white/15"
-                      : "bg-brand-purple/10"
+                  key={program.title}
+                  className={`rounded-brand-xl p-7 hover:shadow-[0_10px_40px_rgba(0,0,0,0.15)]
+                    hover:-translate-y-1 transition-all duration-300 ${
+                    isPurple
+                      ? "bg-gradient-to-br from-brand-purple to-brand-purple-dark text-white"
+                      : isGreen
+                      ? "bg-gradient-to-br from-brand-mint to-brand-green-medium text-brand-black"
+                      : "bg-white border border-gray-200"
                   }`}
                 >
-                  <program.icon
-                    className={`w-6 h-6 ${
-                      program.highlight ? "text-brand-mint" : "text-brand-purple"
+                  <div
+                    className={`w-12 h-12 rounded-brand-lg flex items-center justify-center mb-5 ${
+                      isPurple
+                        ? "bg-white/15"
+                        : isGreen
+                        ? "bg-brand-black/10"
+                        : "bg-brand-purple/10"
                     }`}
-                  />
+                  >
+                    <program.icon
+                      className={`w-6 h-6 ${
+                        isPurple
+                          ? "text-brand-mint"
+                          : isGreen
+                          ? "text-brand-black"
+                          : "text-brand-purple"
+                      }`}
+                    />
+                  </div>
+                  <h3
+                    className={`font-heading font-bold text-xl mb-2 ${
+                      isPurple
+                        ? "text-white"
+                        : "text-brand-black"
+                    }`}
+                  >
+                    {program.title}
+                  </h3>
+                  <p
+                    className={`text-sm leading-relaxed ${
+                      isPurple
+                        ? "text-white/80"
+                        : isGreen
+                        ? "text-brand-black/70"
+                        : "text-gray-600"
+                    }`}
+                  >
+                    {program.description}
+                  </p>
                 </div>
-                <h3
-                  className={`font-heading font-bold text-xl mb-2 ${
-                    program.highlight ? "text-white" : "text-brand-black"
-                  }`}
-                >
-                  {program.title}
-                </h3>
-                <p
-                  className={`text-sm leading-relaxed ${
-                    program.highlight ? "text-white/80" : "text-gray-600"
-                  }`}
-                >
-                  {program.description}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
