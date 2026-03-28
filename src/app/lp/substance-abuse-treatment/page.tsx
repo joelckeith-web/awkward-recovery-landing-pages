@@ -383,7 +383,7 @@ export default function SubstanceAbuseTreatmentLP() {
             {/* Right: Form */}
             <div className="lg:sticky lg:top-20">
               <LandingForm
-                heading="Get Confidential Help Now"
+                heading="Join Our Community"
                 leadSource="Substance Abuse Treatment LP"
               />
             </div>
@@ -706,10 +706,10 @@ export default function SubstanceAbuseTreatmentLP() {
           {/* Inline lifestyle photo */}
           <div className="my-10 rounded-brand-xl overflow-hidden">
             <Image
-              src={LIFESTYLE_PHOTOS.supportGroup}
-              alt="Support group session at Awkward Recovery"
+              src={LIFESTYLE_PHOTOS.mentalHealthMatters}
+              alt="Mental health and addiction recovery at Awkward Recovery"
               width={900}
-              height={400}
+              height={450}
               className="w-full h-64 md:h-80 object-cover"
             />
           </div>
@@ -1011,8 +1011,7 @@ export default function SubstanceAbuseTreatmentLP() {
           </h2>
           <p className="text-white/70 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
             Take the first step toward a life free from substance abuse.
-            Call our admissions team, verify your insurance, or submit a
-            form — whatever feels right for you.
+            Whatever feels right for you — we&apos;re here.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
@@ -1031,10 +1030,6 @@ export default function SubstanceAbuseTreatmentLP() {
               <ShieldCheck className="w-5 h-5" />
               Verify Insurance
             </a>
-            <ScrollToTopLink className="btn-outline border-white text-white hover:bg-white hover:text-brand-purple text-lg">
-              <ArrowRight className="w-5 h-5" />
-              Submit a Form
-            </ScrollToTopLink>
           </div>
         </div>
       </section>
