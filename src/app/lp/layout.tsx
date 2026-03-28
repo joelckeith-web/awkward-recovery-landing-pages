@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
-import { Phone } from "lucide-react";
+import { Phone, ShieldCheck } from "lucide-react";
 
 export default function LandingPageLayout({
   children,
@@ -9,22 +9,22 @@ export default function LandingPageLayout({
 }) {
   return (
     <>
-      {/* Sticky top bar */}
-      <div className="bg-brand-black text-white text-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-12">
+      {/* Sticky top bar — taller for readable logo */}
+      <div className="bg-brand-black text-white sticky top-0 z-50 shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20">
           <Image
             src="/images/logos/ar-logo-white.png"
             alt="Awkward Recovery"
-            width={160}
-            height={40}
-            className="h-8 w-auto object-contain"
+            width={200}
+            height={50}
+            className="h-10 md:h-12 w-auto object-contain"
             priority
           />
           <a
             href={`tel:${siteConfig.business.phoneLink}`}
-            className="flex items-center gap-2 text-brand-mint hover:text-white transition-colors font-semibold"
+            className="flex items-center gap-2 text-brand-mint hover:text-white transition-colors font-semibold text-base md:text-lg"
           >
-            <Phone className="w-4 h-4" />
+            <Phone className="w-5 h-5" />
             <span className="hidden sm:inline">Admissions: </span>
             {siteConfig.business.phone}
           </a>
@@ -33,10 +33,31 @@ export default function LandingPageLayout({
 
       <main>{children}</main>
 
-      {/* Minimal footer */}
-      <footer className="bg-brand-black text-white/60 text-sm py-8">
+      {/* Footer — call + verify insurance CTAs */}
+      <footer className="bg-brand-black text-white py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+            <a
+              href={`tel:${siteConfig.business.phoneLink}`}
+              className="btn-mint text-lg"
+            >
+              <Phone className="w-5 h-5" />
+              {siteConfig.business.phone}
+            </a>
+            <a
+              href={siteConfig.business.insuranceVerificationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline border-white text-white hover:bg-white hover:text-brand-black text-lg"
+            >
+              <ShieldCheck className="w-5 h-5" />
+              Verify Insurance
+            </a>
+          </div>
+
+          {/* Legal */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/10 text-white/40 text-sm">
             <p>
               &copy; {new Date().getFullYear()} {siteConfig.business.name}. All
               rights reserved.

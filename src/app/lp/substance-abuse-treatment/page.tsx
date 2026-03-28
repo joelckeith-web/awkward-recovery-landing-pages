@@ -394,44 +394,44 @@ export default function SubstanceAbuseTreatmentLP() {
       {/* ============================================================ */}
       {/* JOINT COMMISSION CREDIBILITY BAR (first thing after hero)      */}
       {/* ============================================================ */}
-      <section className="bg-brand-black border-b border-white/10 py-6">
+      <section className="bg-brand-black border-b border-white/10 py-8 md:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
             {/* Gold Seal */}
             <a
               href="https://www.jointcommission.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 group"
+              className="flex items-center gap-5 group"
             >
               <Image
                 src={GOLD_SEAL_IMG}
                 alt="Joint Commission Gold Seal of Approval"
-                width={70}
-                height={70}
-                className="w-16 h-16 object-contain group-hover:scale-105 transition-transform"
+                width={80}
+                height={80}
+                className="w-20 h-20 object-contain group-hover:scale-105 transition-transform"
               />
               <div>
-                <p className="font-heading font-extrabold text-white text-base">
+                <p className="font-heading font-extrabold text-white text-lg">
                   Joint Commission Accredited
                 </p>
-                <p className="text-white/50 text-xs">
+                <p className="text-white/50 text-sm">
                   The Gold Standard of Care
                 </p>
               </div>
             </a>
 
-            <div className="hidden md:block w-px h-10 bg-white/20" />
+            <div className="hidden md:block w-px h-14 bg-white/20" />
 
             {/* Trust stats */}
             {trustStats.slice(1).map((stat) => (
-              <div key={stat.label} className="flex items-center gap-3">
-                <stat.icon className="w-6 h-6 text-brand-purple-light flex-shrink-0" />
+              <div key={stat.label} className="flex items-center gap-4">
+                <stat.icon className="w-8 h-8 text-brand-purple-light flex-shrink-0" />
                 <div>
-                  <p className="font-heading font-extrabold text-white text-sm">
+                  <p className="font-heading font-extrabold text-white text-base">
                     {stat.value}
                   </p>
-                  <p className="text-white/50 text-xs">{stat.label}</p>
+                  <p className="text-white/50 text-sm">{stat.label}</p>
                 </div>
               </div>
             ))}
@@ -638,6 +638,27 @@ export default function SubstanceAbuseTreatmentLP() {
       </section>
 
       {/* ============================================================ */}
+      {/* LIFESTYLE PHOTO BREAK                                         */}
+      {/* ============================================================ */}
+      <section className="relative h-64 md:h-80 overflow-hidden">
+        <Image
+          src={LIFESTYLE_PHOTOS.communityGathering}
+          alt="Community and connection at Awkward Recovery in Austin"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-black/60 via-brand-black/30 to-transparent" />
+        <div className="absolute inset-0 flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <p className="font-heading font-extrabold text-3xl md:text-4xl text-white max-w-md">
+              Recovery is better{" "}
+              <span className="text-brand-mint">together.</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
       {/* DEEP CONTENT — SEO COPY                                       */}
       {/* ============================================================ */}
       <section className="py-16 md:py-24 bg-gray-50">
@@ -680,6 +701,17 @@ export default function SubstanceAbuseTreatmentLP() {
               substance abuse evaluations and insurance verification to make
               getting started as simple as possible.
             </p>
+          </div>
+
+          {/* Inline lifestyle photo */}
+          <div className="my-10 rounded-brand-xl overflow-hidden">
+            <Image
+              src={LIFESTYLE_PHOTOS.supportGroup}
+              alt="Support group session at Awkward Recovery"
+              width={900}
+              height={400}
+              className="w-full h-64 md:h-80 object-cover"
+            />
           </div>
 
           {/* Mid-content CTA */}
@@ -808,6 +840,27 @@ export default function SubstanceAbuseTreatmentLP() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* LIFESTYLE PHOTO BREAK 2                                       */}
+      {/* ============================================================ */}
+      <section className="relative h-56 md:h-72 overflow-hidden">
+        <Image
+          src={LIFESTYLE_PHOTOS.smiling}
+          alt="Recovery and wellness at Awkward Recovery in Austin, TX"
+          fill
+          className="object-cover object-top"
+        />
+        <div className="absolute inset-0 bg-gradient-to-l from-brand-black/60 via-brand-black/30 to-transparent" />
+        <div className="absolute inset-0 flex items-center justify-end">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-right">
+            <p className="font-heading font-extrabold text-3xl md:text-4xl text-white max-w-md ml-auto">
+              You deserve to{" "}
+              <span className="text-brand-mint">feel whole again.</span>
+            </p>
           </div>
         </div>
       </section>
