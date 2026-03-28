@@ -10,7 +10,6 @@ import {
   CheckCircle,
   ArrowRight,
   BadgeCheck,
-  Stethoscope,
   CalendarCheck,
   MessageCircle,
   MapPin,
@@ -19,10 +18,41 @@ import {
   Pill,
   Activity,
 } from "lucide-react";
+import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 import LandingForm from "@/components/landing/LandingForm";
 import FAQAccordion from "@/components/sections/FAQAccordion";
 import ScrollToTopLink from "@/components/landing/ScrollToTopLink";
+
+/* ------------------------------------------------------------------ */
+/*  ASSET URLs (from awkwardrecovery.com Wix CDN)                      */
+/* ------------------------------------------------------------------ */
+
+const GOLD_SEAL_IMG =
+  "https://static.wixstatic.com/media/55fcb2_c8bc10969062441dbaccea1c97a756cb~mv2.png";
+
+const insuranceLogos = [
+  {
+    name: "Baylor Scott & White",
+    src: "https://static.wixstatic.com/media/55fcb2_2f25e3be20584a64955f9453f488139d~mv2.png",
+  },
+  {
+    name: "BlueCross BlueShield",
+    src: "https://static.wixstatic.com/media/55fcb2_bcaa92b23b654fa0b76ed290d17de4e6~mv2.png",
+  },
+  {
+    name: "Cigna Healthcare",
+    src: "https://static.wixstatic.com/media/55fcb2_72180b2415674b9a92c1846273d6c5e9~mv2.png",
+  },
+  {
+    name: "TriWest Healthcare Alliance",
+    src: "https://static.wixstatic.com/media/55fcb2_64cfd3fc2914434388ce5585ab405e9c~mv2.png",
+  },
+  {
+    name: "Aetna",
+    src: "https://static.wixstatic.com/media/55fcb2_8b174753999544a280da076657c72da1~mv2.png",
+  },
+];
 
 export const metadata: Metadata = {
   title:
@@ -198,13 +228,6 @@ const serviceAreas = [
   "Kyle",
 ];
 
-const insuranceProviders = [
-  "BlueCross BlueShield",
-  "Aetna",
-  "Cigna Healthcare",
-  "TriWest Healthcare Alliance",
-  "Baylor Scott & White",
-];
 
 const faqs = [
   {
@@ -306,7 +329,7 @@ export default function SubstanceAbuseTreatmentLP() {
                   className="btn-mint"
                 >
                   <Phone className="w-5 h-5" />
-                  Call Admissions: {siteConfig.business.phone}
+                  {siteConfig.business.phone}
                 </a>
                 <a
                   href={siteConfig.business.insuranceVerificationUrl}
@@ -319,19 +342,21 @@ export default function SubstanceAbuseTreatmentLP() {
                 </a>
               </div>
 
-              {/* Trust logos */}
+              {/* Insurance logos */}
               <div className="pt-6 border-t border-white/10">
                 <p className="text-white/40 text-xs uppercase tracking-widest mb-3">
                   In-Network With
                 </p>
-                <div className="flex flex-wrap gap-4">
-                  {insuranceProviders.map((provider) => (
-                    <span
-                      key={provider}
-                      className="text-white/50 text-sm font-medium bg-white/5 px-3 py-1.5 rounded-full"
-                    >
-                      {provider}
-                    </span>
+                <div className="flex flex-wrap items-center gap-6">
+                  {insuranceLogos.map((logo) => (
+                    <Image
+                      key={logo.name}
+                      src={logo.src}
+                      alt={logo.name}
+                      width={120}
+                      height={50}
+                      className="h-8 w-auto object-contain brightness-0 invert opacity-60"
+                    />
                   ))}
                 </div>
               </div>
@@ -463,16 +488,7 @@ export default function SubstanceAbuseTreatmentLP() {
                     className="btn-mint w-full justify-center"
                   >
                     <Phone className="w-5 h-5" />
-                    Call {siteConfig.business.phone}
-                  </a>
-                  <a
-                    href={siteConfig.business.insuranceVerificationUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-outline border-white text-white hover:bg-white hover:text-brand-black w-full justify-center"
-                  >
-                    <ShieldCheck className="w-5 h-5" />
-                    Verify Insurance
+                    {siteConfig.business.phone}
                   </a>
                   <ScrollToTopLink className="btn-outline border-brand-mint text-brand-mint hover:bg-brand-mint hover:text-brand-black w-full justify-center">
                     <MessageCircle className="w-5 h-5" />
@@ -594,17 +610,10 @@ export default function SubstanceAbuseTreatmentLP() {
           {/* Mid-content CTA */}
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href={`tel:${siteConfig.business.phoneLink}`}
-              className="btn-primary"
-            >
-              <Phone className="w-5 h-5" />
-              Call {siteConfig.business.phone}
-            </a>
-            <a
               href={siteConfig.business.insuranceVerificationUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-outline"
+              className="btn-primary"
             >
               <ShieldCheck className="w-5 h-5" />
               Verify Insurance
@@ -643,12 +652,17 @@ export default function SubstanceAbuseTreatmentLP() {
                   className="btn-mint"
                 >
                   <Phone className="w-5 h-5" />
-                  Call Admissions
+                  {siteConfig.business.phone}
                 </a>
-                <ScrollToTopLink className="btn-outline border-white text-white hover:bg-white hover:text-brand-black">
-                  <MessageCircle className="w-5 h-5" />
-                  Contact Now
-                </ScrollToTopLink>
+                <a
+                  href={siteConfig.business.insuranceVerificationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-outline border-white text-white hover:bg-white hover:text-brand-black"
+                >
+                  <ShieldCheck className="w-5 h-5" />
+                  Verify Insurance
+                </a>
               </div>
             </div>
 
@@ -737,15 +751,13 @@ export default function SubstanceAbuseTreatmentLP() {
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-3 group"
             >
-              {/*
-                TODO: Replace the placeholder below with the actual
-                Joint Commission Gold Seal image.
-                Download from: https://www.jointcommission.org/
-                Save to: /public/images/joint-commission-gold-seal.png
-              */}
-              <div className="w-24 h-24 rounded-full bg-white border-2 border-yellow-400 shadow-lg flex items-center justify-center group-hover:shadow-xl transition-shadow">
-                <ShieldCheck className="w-12 h-12 text-yellow-500" />
-              </div>
+              <Image
+                src={GOLD_SEAL_IMG}
+                alt="Joint Commission Gold Seal of Approval"
+                width={100}
+                height={100}
+                className="w-24 h-24 object-contain group-hover:scale-105 transition-transform"
+              />
               <div className="text-center">
                 <p className="font-heading font-extrabold text-brand-black text-sm">
                   Joint Commission Accredited
@@ -766,12 +778,13 @@ export default function SubstanceAbuseTreatmentLP() {
                 in layout.tsx. Replace LEGITSCRIPT_SEAL_ID in layout.tsx
                 with the actual seal ID from the LegitScript portal.
                 The script will auto-populate this div.
+                Note: LegitScript badge is NOT currently on awkwardrecovery.com
+                — the embed code needs to be obtained from their LegitScript portal.
               */}
               <div
                 id="legitscript-seal"
                 className="flex items-center justify-center"
               >
-                {/* Fallback while script loads or if ID not yet set */}
                 <div className="w-24 h-24 rounded-full bg-white border-2 border-green-400 shadow-lg flex items-center justify-center">
                   <BadgeCheck className="w-12 h-12 text-green-500" />
                 </div>
@@ -787,19 +800,21 @@ export default function SubstanceAbuseTreatmentLP() {
             </div>
           </div>
 
-          {/* Insurance providers */}
+          {/* Insurance provider logos */}
           <div className="text-center">
-            <p className="text-gray-500 text-xs uppercase tracking-widest mb-4">
+            <p className="text-gray-500 text-xs uppercase tracking-widest mb-6">
               In-Network Insurance Providers
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              {insuranceProviders.map((provider) => (
-                <span
-                  key={provider}
-                  className="bg-white border border-gray-200 text-gray-600 text-xs font-medium px-4 py-2.5 rounded-full"
-                >
-                  {provider}
-                </span>
+            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+              {insuranceLogos.map((logo) => (
+                <Image
+                  key={logo.name}
+                  src={logo.src}
+                  alt={logo.name}
+                  width={160}
+                  height={70}
+                  className="h-10 md:h-12 w-auto object-contain"
+                />
               ))}
             </div>
           </div>
@@ -877,7 +892,7 @@ export default function SubstanceAbuseTreatmentLP() {
               className="btn-mint text-lg"
             >
               <Phone className="w-5 h-5" />
-              Call {siteConfig.business.phone}
+              {siteConfig.business.phone}
             </a>
             <a
               href={siteConfig.business.insuranceVerificationUrl}
