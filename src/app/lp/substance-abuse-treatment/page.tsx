@@ -850,16 +850,20 @@ export default function SubstanceAbuseTreatmentLP() {
             <p className="text-gray-500 text-xs uppercase tracking-widest mb-6">
               In-Network Insurance Providers
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+            <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
               {insuranceLogos.map((logo) => (
-                <Image
+                <div
                   key={logo.name}
-                  src={logo.src}
-                  alt={logo.name}
-                  width={160}
-                  height={70}
-                  className="h-10 md:h-12 w-auto object-contain"
-                />
+                  className="bg-white rounded-brand px-5 py-3 shadow-sm"
+                >
+                  <Image
+                    src={logo.src}
+                    alt={logo.name}
+                    width={140}
+                    height={55}
+                    className="h-9 md:h-10 w-auto object-contain"
+                  />
+                </div>
               ))}
             </div>
           </div>
