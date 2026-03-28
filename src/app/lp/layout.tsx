@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 import { Phone } from "lucide-react";
 
@@ -11,12 +12,14 @@ export default function LandingPageLayout({
       {/* Sticky top bar */}
       <div className="bg-brand-black text-white text-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-12">
-          <span className="font-heading font-extrabold text-lg tracking-tight">
-            AWKWARD{" "}
-            <span className="font-body font-light italic text-brand-purple-light">
-              Recovery
-            </span>
-          </span>
+          <Image
+            src="/images/logos/ar-logo-white.png"
+            alt="Awkward Recovery"
+            width={160}
+            height={40}
+            className="h-8 w-auto object-contain"
+            priority
+          />
           <a
             href={`tel:${siteConfig.business.phoneLink}`}
             className="flex items-center gap-2 text-brand-mint hover:text-white transition-colors font-semibold"

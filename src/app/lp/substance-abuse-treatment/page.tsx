@@ -31,6 +31,21 @@ import ScrollToTopLink from "@/components/landing/ScrollToTopLink";
 const GOLD_SEAL_IMG =
   "https://static.wixstatic.com/media/55fcb2_c8bc10969062441dbaccea1c97a756cb~mv2.png";
 
+const LIFESTYLE_PHOTOS = {
+  tattooGroup:
+    "https://static.wixstatic.com/media/nsplsh_4c7734744e637645614538~mv2_d_5328_3552_s_4_2.jpg",
+  communityGathering:
+    "https://static.wixstatic.com/media/55fcb2_c32cc77ef9b14b079a32e4eacb48d8e6~mv2.jpg",
+  mentalHealthMatters:
+    "https://static.wixstatic.com/media/nsplsh_4f5274716a784f55516445~mv2_d_4032_3024_s_4_2.jpg",
+  supportGroup:
+    "https://static.wixstatic.com/media/nsplsh_5867655a75326a42615649~mv2_d_6000_4000_s_4_2.jpg",
+  personReflecting:
+    "https://static.wixstatic.com/media/nsplsh_4fe8df2dec5b4f76b6fe2e50069c5c23~mv2.jpg",
+  smiling:
+    "https://static.wixstatic.com/media/nsplsh_5936544f58364c6e494773~mv2_d_3604_2413_s_4_2.jpg",
+};
+
 const insuranceLogos = [
   {
     name: "Baylor Scott & White",
@@ -312,14 +327,13 @@ export default function SubstanceAbuseTreatmentLP() {
                 Substance Abuse Treatment in Austin, TX
               </p>
               <h1 className="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl text-white leading-tight">
-                Real Substance Abuse Treatment.{" "}
-                <span className="text-brand-mint">No Judgment.</span>{" "}
-                Just Results.
+                Substance Abuse Treatment{" "}
+                <span className="text-brand-mint">Austin, TX</span>
               </h1>
               <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-xl">
                 Stop putting it off. Awkward Recovery offers evidence-based
-                substance abuse treatment programs in Austin that actually work —
-                flexible IOP, insurance accepted, and a community that gets it.
+                substance abuse treatment programs in Austin — flexible IOP,
+                insurance accepted, and a community that gets it.
               </p>
 
               {/* CTA buttons */}
@@ -374,22 +388,46 @@ export default function SubstanceAbuseTreatmentLP() {
       </section>
 
       {/* ============================================================ */}
-      {/* MOBILE TRUST BAR                                              */}
+      {/* JOINT COMMISSION CREDIBILITY BAR (first thing after hero)      */}
       {/* ============================================================ */}
-      <section className="bg-gray-50 py-6 border-b border-gray-200">
+      <section className="bg-brand-black border-b border-white/10 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {trustStats.map((stat) => (
-              <div
-                key={stat.label}
-                className="flex items-center gap-3 bg-white rounded-brand p-4 shadow-sm"
-              >
-                <stat.icon className="w-8 h-8 text-brand-purple flex-shrink-0" />
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
+            {/* Gold Seal */}
+            <a
+              href="https://www.jointcommission.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 group"
+            >
+              <Image
+                src={GOLD_SEAL_IMG}
+                alt="Joint Commission Gold Seal of Approval"
+                width={70}
+                height={70}
+                className="w-16 h-16 object-contain group-hover:scale-105 transition-transform"
+              />
+              <div>
+                <p className="font-heading font-extrabold text-white text-base">
+                  Joint Commission Accredited
+                </p>
+                <p className="text-white/50 text-xs">
+                  The Gold Standard of Care
+                </p>
+              </div>
+            </a>
+
+            <div className="hidden md:block w-px h-10 bg-white/20" />
+
+            {/* Trust stats */}
+            {trustStats.slice(1).map((stat) => (
+              <div key={stat.label} className="flex items-center gap-3">
+                <stat.icon className="w-6 h-6 text-brand-purple-light flex-shrink-0" />
                 <div>
-                  <p className="font-heading font-extrabold text-brand-black text-sm leading-tight">
+                  <p className="font-heading font-extrabold text-white text-sm">
                     {stat.value}
                   </p>
-                  <p className="text-gray-500 text-xs">{stat.label}</p>
+                  <p className="text-white/50 text-xs">{stat.label}</p>
                 </div>
               </div>
             ))}
@@ -407,7 +445,7 @@ export default function SubstanceAbuseTreatmentLP() {
               Why Choose Us
             </p>
             <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-brand-black mb-4">
-              Substance Abuse Treatment That Actually Works
+              Why Choose Awkward Recovery
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               We combine clinical excellence with raw authenticity. Our
@@ -468,7 +506,17 @@ export default function SubstanceAbuseTreatmentLP() {
               </ul>
             </div>
 
-            {/* Right: CTA Card */}
+            {/* Right: CTA Card with lifestyle photo */}
+            <div className="space-y-6">
+              <div className="rounded-brand-xl overflow-hidden">
+                <Image
+                  src={LIFESTYLE_PHOTOS.tattooGroup}
+                  alt="Awkward Recovery community in Austin, Texas"
+                  width={600}
+                  height={350}
+                  className="w-full h-56 md:h-64 object-cover"
+                />
+              </div>
             <div className="bg-gradient-to-br from-brand-purple-dark to-brand-black rounded-brand-xl p-8 md:p-10 text-white relative overflow-hidden">
               <div className="absolute top-0 right-0 w-48 h-48 bg-brand-purple/20 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl" />
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-brand-mint/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-2xl" />
@@ -496,6 +544,7 @@ export default function SubstanceAbuseTreatmentLP() {
                   </ScrollToTopLink>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         </div>
@@ -772,23 +821,19 @@ export default function SubstanceAbuseTreatmentLP() {
             <div className="hidden md:block w-px h-20 bg-gray-300" />
 
             {/* LegitScript Certification Seal */}
-            <div className="flex flex-col items-center gap-3">
-              {/*
-                LegitScript dynamic seal — rendered by the script loaded
-                in layout.tsx. Replace LEGITSCRIPT_SEAL_ID in layout.tsx
-                with the actual seal ID from the LegitScript portal.
-                The script will auto-populate this div.
-                Note: LegitScript badge is NOT currently on awkwardrecovery.com
-                — the embed code needs to be obtained from their LegitScript portal.
-              */}
-              <div
-                id="legitscript-seal"
-                className="flex items-center justify-center"
-              >
-                <div className="w-24 h-24 rounded-full bg-white border-2 border-green-400 shadow-lg flex items-center justify-center">
-                  <BadgeCheck className="w-12 h-12 text-green-500" />
-                </div>
-              </div>
+            <a
+              href="https://www.legitscript.com/websites/?checker_keywords=awkwardrecovery.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center gap-3 group"
+            >
+              <Image
+                src="https://static.legitscript.com/seals/32063484.png"
+                alt="LegitScript Certified — Verify Approval for awkwardrecovery.com"
+                width={100}
+                height={100}
+                className="w-24 h-24 object-contain group-hover:scale-105 transition-transform"
+              />
               <div className="text-center">
                 <p className="font-heading font-extrabold text-brand-black text-sm">
                   LegitScript Certified
@@ -797,7 +842,7 @@ export default function SubstanceAbuseTreatmentLP() {
                   Verified Treatment Provider
                 </p>
               </div>
-            </div>
+            </a>
           </div>
 
           {/* Insurance provider logos */}

@@ -33,17 +33,11 @@ export default function RootLayout({
       <body>
         {children}
 
-        {/* LegitScript Certification Seal
-            ──────────────────────────────
-            TODO: Replace LEGITSCRIPT_SEAL_ID below with the actual seal ID
-            from Awkward Recovery's LegitScript portal.
-            The script dynamically renders the verification badge wherever
-            <div id="legitscript-seal"></div> appears on the page.
-        */}
+        {/* LegitScript Certification Seal (ID: 32063484) */}
         <Script
           id="legitscript-seal-script"
           strategy="lazyOnload"
-          src="https://static.legitscript.com/seals/LEGITSCRIPT_SEAL_ID.js"
+          src="https://static.legitscript.com/seals/32063484.js"
         />
       </body>
     </html>
