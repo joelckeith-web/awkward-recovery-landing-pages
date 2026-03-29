@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
-import { Phone, ShieldCheck } from "lucide-react";
+import { Phone } from "lucide-react";
 
 export default function LandingPageLayout({
   children,
@@ -36,28 +36,7 @@ export default function LandingPageLayout({
       {/* Footer — call + verify insurance CTAs */}
       <footer className="bg-brand-black text-white py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-            <a
-              href={`tel:${siteConfig.business.phoneLink}`}
-              className="btn-mint text-lg"
-            >
-              <Phone className="w-5 h-5" />
-              {siteConfig.business.phone}
-            </a>
-            <a
-              href={siteConfig.business.insuranceVerificationUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline border-white text-white hover:bg-white hover:text-brand-black text-lg"
-            >
-              <ShieldCheck className="w-5 h-5" />
-              Verify Insurance
-            </a>
-          </div>
-
-          {/* Legal */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/10 text-white/40 text-sm">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-white/40 text-sm">
             <p>
               &copy; {new Date().getFullYear()} {siteConfig.business.name}. All
               rights reserved.
