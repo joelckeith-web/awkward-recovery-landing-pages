@@ -31,7 +31,15 @@ function LandingFormInner({
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<FormData>();
+  } = useForm<FormData>({
+    defaultValues: {
+      name: "",
+      phone: "",
+      email: "",
+      helpMessage: "",
+      referralSource: "",
+    },
+  });
 
   const onSubmit = async (data: FormData) => {
     setSubmitError(null);
@@ -165,8 +173,8 @@ function LandingFormInner({
           <select
             {...register("referralSource", {
               required: "Please let us know how you found us",
+              validate: (v) => v !== "" || "Please let us know how you found us",
             })}
-            defaultValue=""
             className="w-full border border-gray-300 rounded-brand px-4 py-3 text-sm text-gray-500
                        focus:outline-none focus:ring-2 focus:ring-brand-purple focus:border-transparent"
           >
