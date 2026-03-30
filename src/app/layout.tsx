@@ -82,12 +82,11 @@ gtag('js',new Date());gtag('config','${GA_ID}');`,
 
         {children}
 
-        {/* LegitScript Certification Seal (ID: 32063484) */}
-        <Script
-          id="legitscript-seal-script"
-          strategy="lazyOnload"
-          src="https://static.legitscript.com/seals/32063484.js"
-        />
+        {/*
+          LegitScript seal — their JS uses document.write which doesn't work
+          in async-loaded scripts. We use the static image + link instead
+          (already rendered in the accreditation section of the LP).
+        */}
       </body>
     </html>
   );
